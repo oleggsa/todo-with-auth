@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <login-page/>
+    <login-page />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
   import LoginPage from "@/views/LoginPage";
   export default {
     name: 'App',
-    components: {LoginPage}
+    components: {LoginPage},
   }
 </script>
 

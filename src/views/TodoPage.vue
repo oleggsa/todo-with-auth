@@ -70,18 +70,21 @@ export default {
       this.isEditing = false
       this.dataForChange = {}
       this.$store.commit('updateTodoList', this.todoList)
+      document.body.style.overflow = "auto";
     },
     editTodo(item) {
       this.isDialogVisible = true;
       this.isEditing = true;
       this.dataForChange = item;
       this.dataIndex = this.todoList.indexOf(item);
+      document.body.style.overflow = "hidden";
     },
     updateTodo(item) {
       this.todoList.splice(this.dataIndex, 1, item)
       this.isDialogVisible = false;
       this.isEditing = false;
       this.$store.commit('updateTodoList', this.todoList)
+      document.body.style.overflow = "auto";
     },
     removeTodo(item) {
       this.todoList.splice(this.todoList.indexOf(item), 1)
@@ -89,11 +92,15 @@ export default {
     },
     showDialog(){
       this.isDialogVisible = true;
+      document.body.style.overflow = "hidden";
     },
     showInfoDialog(){
       this.isInfoDialogVisible = true;
+      document.body.style.overflow = "hidden";
     },
     hideDialog() {
+      console.log('WORKS')
+      document.body.style.overflow = "auto";
       this.isDialogVisible = false;
       this.isInfoDialogVisible = false;
       this.isEditing = false;
@@ -155,7 +162,7 @@ export default {
       background: white;
       width: 100%;
       padding: 0 70px;
-      min-height: 535px;
+      min-height: 550px;
       @include _1200 {
         padding: 0 50px;
       }

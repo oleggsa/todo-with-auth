@@ -2,7 +2,7 @@
   <div class="todo-list" v-if="todoList.length > 0">
     <show-todo-form :show="isInfoDialogVisible" :targetTodo="targetTodo"/>
     <transition-group name="transition" tag="div">
-      <div class="todo-item" v-for="item in todoList" :key="item.title">
+      <div class="todo-item" v-for="item in todoList" :key="item.id">
         <div class="todo-body" @click="showInfoDialog(item)">
           <div class="header">{{ item.title }}</div>
           <div class="description">{{item.description}}</div>

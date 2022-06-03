@@ -9,7 +9,7 @@
           <div class="todo-inner__section">
             <div class="todo-header">
               <div class="todo-title">
-                Thank you, {{this.currentUserName}}!
+                Welcome, {{this.currentUserName}}!
               </div>
               <primary-button @click.native="showDialog">CREATE</primary-button>
               <todo-form
@@ -96,6 +96,9 @@ export default {
 .login-btn {
   border-radius: 5px;
   width: 200px;
+  @include _525 {
+    width: 100%;
+  }
 }
 
 .todo {
@@ -109,26 +112,67 @@ export default {
     flex-direction: column;
     align-items: center;
     &__logo {
-      margin-top: 65px;
-      margin-bottom: 67px;
+      margin: 66px 0;
+      @include _1024 {
+        margin: 50px 0;
+      }
+      @include _768 {
+        margin: 35px 0;
+      }
+      @include _592 {
+        margin: 25px 0;
+      }
+      img {
+        @include _1024 {
+          width: 150px;
+        }
+        @include _768 {
+          width: 100px;
+        }
+        @include _592 {
+          width: 70px;
+        }
+      }
     }
     &__section {
       background: white;
       width: 100%;
       padding: 0 70px;
-      min-height: 500px;
+      min-height: 535px;
+      @include _1200 {
+        padding: 0 50px;
+      }
+      @include _1024 {
+        padding: 0 30px;
+      }
+      @include _768 {
+        padding: 0 15px;
+      }
       .todo {
         &-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           position: relative;
+          @include _525 {
+            flex-direction: column;
+            margin-bottom: 20px;
+          }
           .todo-title {
             font-size: 60px;
             font-weight: 700;
             color: $main-grey;
             text-align: center;
             padding: 20px 0;
+            @include _1200 {
+              font-size: 40px;
+            }
+            @include _768 {
+              font-size: 32px;
+            }
+            @include _525 {
+              padding: 10px 0;
+            }
           }
         }
       }

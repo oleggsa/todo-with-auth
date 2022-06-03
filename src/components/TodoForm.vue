@@ -78,6 +78,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "./src/assets/styles/mixin";
+@import "./src/assets/styles/variables";
+
 .login-btn {
   border-radius: 5px;
 }
@@ -96,6 +99,13 @@ export default {
     border-radius: 10px;
     min-width: 300px;
     min-height: 100px;
+    @include _768 {
+      margin: auto 20px;
+    }
+    @include _375 {
+      padding: 12px;
+      margin: auto 10px;
+    }
   }
 }
 .todo-create {

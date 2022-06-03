@@ -38,6 +38,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include _592 {
+      padding: 6px 9px;
+    }
     &:last-child {
       margin-bottom: 50px;
     }
@@ -47,9 +50,11 @@ export default {
         font-weight: 500;
         display: flex;
         margin-bottom: 10px;
+        overflow-wrap: break-word;
       }
       .description {
         font-size: 13px;
+        overflow-wrap: break-word;
       }
     }
     .btns {
@@ -62,6 +67,12 @@ export default {
         height: 20px;
         width: 20px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include _592 {
+          margin-left: 15px;
+        }
       }
     }
   }

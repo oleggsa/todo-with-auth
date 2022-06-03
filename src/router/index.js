@@ -5,6 +5,7 @@ import LoginPage from "@/views/LoginPage";
 Vue.use(VueRouter)
 
 function isAuthenticated(){
+  if (localStorage.getItem('user') === null) return false
   return JSON.parse(localStorage.getItem('user')).isAuth
 }
 

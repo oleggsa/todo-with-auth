@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import {EventBus} from "@/main";
 import PrimaryButton from "@/components/PrimaryButton";
 import TodoList from "@/components/TodoList";
 import TodoForm from "@/components/TodoForm";
@@ -42,12 +41,7 @@ export default {
   data(){
     return {
       currentUserName: '',
-      todoList: [
-        {id: 10, title: 'TodoItem10', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, itaque?'},
-        {id: 3, title: 'TodoItem3', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, itaque?'},
-        {id: 2, title: 'TodoItem2', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, itaque?'},
-        {id: 1, title: 'TodoItem1', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, itaque?'},
-      ],
+      todoList: [],
       isDialogVisible: false,
       isEditing: false,
       dataForChange: {},
@@ -56,6 +50,7 @@ export default {
   },
   mounted() {
     this.currentUserName = JSON.parse(localStorage.getItem('user')).name;
+    this.todoList = this.$store.getters.getTodos
   },
   methods: {
     createTodo(item){
@@ -63,6 +58,7 @@ export default {
       this.isDialogVisible = false
       this.isEditing = false
       this.dataForChange = {}
+      this.$store.commit('updateTodoList', this.todoList)
     },
     editTodo(item) {
       this.isDialogVisible = true;
@@ -74,9 +70,11 @@ export default {
       this.todoList.splice(this.dataIndex, 1, item)
       this.isDialogVisible = false;
       this.isEditing = false;
+      this.$store.commit('updateTodoList', this.todoList)
     },
     removeTodo(item) {
       this.todoList.splice(this.todoList.indexOf(item), 1)
+      this.$store.commit('updateTodoList', this.todoList)
     },
     showDialog(){
       this.isDialogVisible = true

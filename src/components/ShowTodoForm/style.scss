@@ -23,6 +23,8 @@
     min-width: 300px;
     max-width: 700px;
     min-height: 200px;
+    max-height: 80%;
+    overflow-y: scroll;
 
     @include _375 {
       padding: 12px;

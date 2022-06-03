@@ -1,17 +1,9 @@
 <template>
   <div id="app">
-    <login-page />
+    <router-view/>
   </div>
 </template>
 
-<script>
-  import LoginPage from "@/views/LoginPage";
-  export default {
-    name: 'App',
-    components: {LoginPage},
-  }
-</script>
-
-<style>
+<style lang="scss">
 
 </style>

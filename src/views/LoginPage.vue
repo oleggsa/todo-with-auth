@@ -1,7 +1,6 @@
 <template>
   <div class="login">
     <Header />
-    <AuthForm />
     <div class="login__inner">
       <div class="container">
         <div class="login__left">
@@ -14,6 +13,7 @@
             </div>
           </div>
         </div>
+        <AuthForm />
       </div>
     </div>
     <Footer />
@@ -32,7 +32,7 @@ export default {
       bodyList: [
         {
           title: 'Interactive Reporting',
-          description: 'In just a few clicks, you can connect your data from 1C, CRM (Bitrix24, AmoCRM, ZohoCRM), <br> E-commerce (PROM.UA, Rozetka, ebay), Logistic (Nova Poshta), Google Analytics and many more systems that reflect different aspects of business activities.',
+          description: '<span>In just a few clicks, you can connect your data from 1C, CRM (Bitrix24, AmoCRM, ZohoCRM),</span> <span>E-commerce (PROM.UA, Rozetka, ebay), Logistic (Nova Poshta), Google Analytics and many more systems that reflect different aspects of business activities.</span>',
         },
         {
           title: 'Automated data updates',
@@ -59,9 +59,21 @@ export default {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 1920px 457px;
+    @include _1024 {
+      background-size: 1600px;
+    }
+    @include _768 {
+      background-size: 1300px;
+    }
+    @include _592 {
+      background-size: 950px;
+    }
   }
   &__left {
     max-width: 680px;
+    @include _1200 {
+      max-width: 100%;
+    }
     .header {
       font-size: 55px;
       font-weight: 400;
@@ -69,6 +81,23 @@ export default {
       color: $white;
       margin: 0 0 118px 0;
       padding: 215px 0 0 0;
+      @include _1024 {
+        font-size: 40px;
+        line-height: 66px;
+        margin-bottom: 80px;
+      }
+      @include _768 {
+        padding-top: 150px;
+      }
+      @include _592 {
+        font-size: 30px;
+        line-height: 45px;
+        padding-top: 110px;
+        margin-bottom: 50px;
+      }
+      @include _450 {
+        font-size: 25px;
+      }
     }
   }
   &__body {
@@ -77,12 +106,18 @@ export default {
       font-size: 16px;
       line-height: 25px;
       margin-bottom: 23px;
+      @include _592 {
+        font-size: 14px;
+      }
       span {
         font-weight: 500;
       }
     }
     .login__list {
       padding-left: 40px;
+      @include _592 {
+        padding-left: 20px;
+      }
       .title {
         font-size: 16px;
         font-weight: 500;
@@ -90,11 +125,25 @@ export default {
         color: $main-grey;
         margin-bottom: 10px;
         position: relative;
+        @include _592 {
+          font-size: 14px;
+        }
         &:before {
-          content: url("../assets/images/check.svg");
+          content: '';
+          background-image: url("../assets/images/check.svg");
+          background-size: 23px 23px;
+          width: 23px;
+          height: 23px;
           position: absolute;
           left: -40px;
-
+          @include _592 {
+            left: -15px;
+            top: 7px;
+            background-size: 10px 10px;
+            width: 10px;
+            height: 10px;
+            vertical-align: center;
+          }
         }
       }
       .description {

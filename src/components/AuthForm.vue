@@ -76,16 +76,33 @@ export default {
 .auth-form {
   position: absolute;
   width: 481px;
-  height: 464px;
-  left: 56.8%;
+  left: calc(50% + 118px);
   top: 423px;
   background: #FFFFFF;
   box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  @include _1250 {
+    left: auto;
+    right: 20px;
+  }
+  @include _1200 {
+    position: static;
+    margin: 0 auto 30px;
+    @include _592 {
+      width: 100%;
+    }
+  }
   &__inner {
     padding: 40px 30px 0;
+    @include _592 {
+      padding: 20px 20px 0;
+    }
     .input-login,
     .input-password {
       margin-bottom: 40px;
+      @include _592 {
+        margin-bottom: 15px;
+      }
       p {
         margin: 0 0 7px 0;
       }
@@ -95,10 +112,18 @@ export default {
         border: 1px solid #9A9A9A;
         font-size: 20px;
         padding: 15px;
+        @include _592 {
+          padding: 10px;
+          height: 40px;
+          font-size: 14px;
+        }
       }
       span {
         margin-top: 5px;
         color: #D60000;
+        @include _592 {
+          font-size: 13px;
+        }
         img {
           margin-right: 5px;
         }
@@ -114,6 +139,9 @@ export default {
       background: none;
       border: none;
       color: #056DAE;
+      @include _592 {
+        margin: 10px 0;
+      }
     }
   }
   .register-btn {
@@ -124,6 +152,16 @@ export default {
     background: #F6F6F6;
     border: none;
     padding: 18px 0;
+    @include _592 {
+      font-size: 20px;
+      padding: 10px 0;
+    }
+  }
+  .login-btn {
+    @include _592 {
+      margin-top: 10px;
+      height: 45px;
+    }
   }
 }
 </style>

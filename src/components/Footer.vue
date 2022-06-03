@@ -12,7 +12,7 @@
         </div>
         <hr class="footer__line">
         <div class="footer__copyright">
-          Copyright © 2020 Citigroup Inc. Citibank, N.A. Member FDIC. Equal Opportunity Lender.
+          <span>Copyright © 2020 Citigroup Inc. Citibank, N.A. </span><span>Member FDIC. Equal Opportunity Lender.</span>
         </div>
       </div>
     </div>
@@ -44,23 +44,45 @@ export default {
 .container {
   max-width: 1175px;
   padding: 0 0 0 12px;
+  @include _1200 {
+    padding: 0 20px;
+  }
 }
 .footer {
   width: 100%;
   background: $main-grey;
-  height: 176px;
   &__inner {
     .upper-side {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 18px 0 18px 5px;
+      @include _825 {
+        flex-direction: column;
+      }
       ul {
         display: flex;
         flex-direction: row;
         list-style-type: none;
+        @include _825 {
+          flex-direction: column;
+          padding: 0;
+          margin-bottom: 0;
+        }
         li {
           margin-left: 20px;
+          @include _1024 {
+            margin-left: 15px;
+            display: flex;
+            justify-content: center;
+          }
+          @include _825 {
+            margin-left: 0;
+            margin-bottom: 12px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
           a {
             color: $white;
             font-size: 16px;
@@ -81,6 +103,16 @@ export default {
     font-weight: 500;
     line-height: 19px;
     color: $white;
+    @include _1024 {
+      text-align: center;
+    }
+    @include _825 {
+      padding: 15px 0;
+    }
+    @include _525 {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>

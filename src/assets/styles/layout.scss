@@ -28,8 +28,10 @@ a, button, input {
   max-width: 1200px;
   padding: 0 20px;
   margin: 0 auto;
-
+  @include _1024 {
+    padding: 0 32px;
+  }
   @include _768 {
-    padding: 0 10px;
+    padding: 0 16px;
   }
 }

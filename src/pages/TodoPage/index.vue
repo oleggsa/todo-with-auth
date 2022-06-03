@@ -4,7 +4,7 @@
       <div class="container">
         <div class="todo-inner">
           <div class="todo-inner__logo">
-            <img src="../assets/images/logo-todo.svg" alt="logo">
+            <img src="../../assets/images/logo-todo.svg" alt="logo">
           </div>
           <div class="todo-inner__section">
             <div class="todo-header">
@@ -114,93 +114,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./src/assets/styles/mixin";
-@import "./src/assets/styles/variables";
-
-.login-btn {
-  border-radius: 5px;
-  width: 200px;
-  @include _525 {
-    width: 100%;
-  }
-}
-
-.todo {
-  &-wrapper {
-    background: $header-gradient;
-    height: 800px;
-    width: 100%;
-  }
-  &-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__logo {
-      margin: 66px 0;
-      @include _1024 {
-        margin: 50px 0;
-      }
-      @include _768 {
-        margin: 35px 0;
-      }
-      @include _592 {
-        margin: 25px 0;
-      }
-      img {
-        @include _1024 {
-          width: 150px;
-        }
-        @include _768 {
-          width: 100px;
-        }
-        @include _592 {
-          width: 70px;
-        }
-      }
-    }
-    &__section {
-      background: white;
-      width: 100%;
-      padding: 0 70px;
-      min-height: 550px;
-      @include _1200 {
-        padding: 0 50px;
-      }
-      @include _1024 {
-        padding: 0 30px;
-      }
-      @include _768 {
-        padding: 0 15px;
-      }
-      .todo {
-        &-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          position: relative;
-          @include _525 {
-            flex-direction: column;
-            margin-bottom: 20px;
-          }
-          .todo-title {
-            font-size: 60px;
-            font-weight: 700;
-            color: $main-grey;
-            text-align: center;
-            padding: 20px 0;
-            @include _1200 {
-              font-size: 40px;
-            }
-            @include _768 {
-              font-size: 32px;
-            }
-            @include _525 {
-              padding: 10px 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+@import "style";
 </style>

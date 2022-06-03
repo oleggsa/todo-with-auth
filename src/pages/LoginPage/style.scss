@@ -1,0 +1,108 @@
+@import "../../assets/styles/mixin";
+@import "../../assets/styles/variables";
+
+
+.login {
+  &__inner {
+    background-image: url("../../assets/images/background-login.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 1920px 457px;
+    @include _1024 {
+      background-size: 1600px;
+    }
+    @include _768 {
+      background-size: 1300px;
+    }
+    @include _592 {
+      background-size: 950px;
+    }
+  }
+  &__left {
+    max-width: 680px;
+    @include _1200 {
+      max-width: 100%;
+    }
+    .header {
+      font-size: 55px;
+      font-weight: 400;
+      line-height: 86.18px;
+      color: $white;
+      margin: 0 0 118px 0;
+      padding: 215px 0 0 0;
+      @include _1024 {
+        font-size: 40px;
+        line-height: 66px;
+        margin-bottom: 80px;
+      }
+      @include _768 {
+        padding-top: 150px;
+      }
+      @include _592 {
+        font-size: 30px;
+        line-height: 45px;
+        padding-top: 110px;
+        margin-bottom: 50px;
+      }
+      @include _450 {
+        font-size: 25px;
+      }
+    }
+  }
+  &__body {
+    padding-left: 8px;
+    .description {
+      font-size: 16px;
+      line-height: 25px;
+      margin-bottom: 23px;
+      @include _592 {
+        font-size: 14px;
+      }
+      span {
+        font-weight: 500;
+      }
+    }
+    .login__list {
+      padding-left: 40px;
+      @include _592 {
+        padding-left: 20px;
+      }
+      .title {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 25px;
+        color: $main-grey;
+        margin-bottom: 10px;
+        position: relative;
+        @include _592 {
+          font-size: 14px;
+        }
+        &:before {
+          content: '';
+          background-image: url("../../assets/images/check.svg");
+          background-size: 23px 23px;
+          width: 23px;
+          height: 23px;
+          position: absolute;
+          left: -40px;
+          @include _592 {
+            left: -15px;
+            top: 7px;
+            background-size: 10px 10px;
+            width: 10px;
+            height: 10px;
+            vertical-align: center;
+          }
+        }
+      }
+      .description {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 15px;
+      }
+    }
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+}

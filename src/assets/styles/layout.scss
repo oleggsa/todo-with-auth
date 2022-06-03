@@ -38,7 +38,7 @@ a, button, input {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .4s linear;
+  transition: opacity .2s linear;
 }
 
 .fade-enter,
@@ -48,7 +48,7 @@ a, button, input {
 
 .pop-enter-active,
 .pop-leave-active {
-  transition: transform 0.4s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.4s linear;
+  transition: transform 0.2s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.2s linear;
 }
 
 .pop-enter,

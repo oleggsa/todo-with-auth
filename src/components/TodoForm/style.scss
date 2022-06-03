@@ -1,0 +1,54 @@
+@import "../../assets/styles/mixin";
+@import "../../assets/styles/variables";
+
+.login-btn {
+  border-radius: 5px;
+}
+.dialog {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  @include _592 {
+    padding: 20px;
+  }
+  @include _450 {
+    padding: 10px;
+  }
+  &-inner {
+    padding: 18px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    min-width: 300px;
+    max-width: 500px;
+    min-height: 100px;
+
+    @include _375 {
+      padding: 12px;
+    }
+  }
+}
+.todo-create {
+  h4 {
+    margin: 0 0 10px;
+    text-align: center;
+    font-size: 26px;
+  }
+  input,
+  textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding: 8px;
+    min-width: 200px;
+  }
+  textarea {
+    resize: vertical;
+    max-height: 200px;
+    min-height: 100px;
+  }
+}

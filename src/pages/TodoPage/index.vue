@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import PrimaryButton from "@/components/PrimaryButton";
+import PrimaryButton from "@/components/UI/PrimaryButton";
 import TodoList from "@/components/TodoList";
 import TodoForm from "@/components/TodoForm";
 import {eventBus} from '@/main'

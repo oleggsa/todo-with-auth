@@ -1,0 +1,60 @@
+@import "../../assets/styles/mixin";
+@import "../../assets/styles/variables";
+
+.todo-list {
+  flex-wrap: wrap;
+  .todo-item {
+    background: $todo-gradient;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 2px 3px 4px black;
+    padding: 12px 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include _592 {
+      padding: 6px 9px;
+    }
+    &:last-child {
+      margin-bottom: 50px;
+    }
+    .todo-body {
+      .header {
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+      }
+      .description {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+      }
+    }
+    .btns {
+      display: flex;
+      .edit-btn,
+      .remove-btn {
+        border: none;
+        margin-left: 10px;
+        background: none;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include _592 {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  color: darkred;
+}

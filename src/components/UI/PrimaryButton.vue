@@ -13,7 +13,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./src/assets/styles/variables";
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixin";
 
 .login-btn {
   width: 100%;

@@ -1,23 +1,5 @@
-<template>
-  <div class="header">
-    <div class="header-upper"></div>
-    <div class="header-lower">
-      <div class="container">
-        <img src="../../src/assets/images/logo-header.svg" alt="logo">
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "Header"
-}
-</script>
-
-<style lang="scss" scoped>
-@import "./src/assets/styles/variables";
-@import "./src/assets/styles/mixin";
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixin";
 
 .header {
   &-upper {
@@ -64,4 +46,3 @@ export default {
 .container {
   width: 1200px;
 }
-</style>

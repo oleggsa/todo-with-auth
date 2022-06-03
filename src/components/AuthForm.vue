@@ -3,22 +3,20 @@
     <div class="auth-form__inner">
       <div class="input-login">
         <p>Name</p>
-        <input type="text" v-model="login" @focus="resetWrongData">
+        <input type="text" v-model="login" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)">
         <span v-if="wrongData.includes('login')">
           <img src="../assets/images/wrong-data.svg" alt="wrong-data">Entered login is incorrect
         </span>
       </div>
       <div class="input-password">
         <p>Password</p>
-        <input type="password" v-model="password" @focus="resetWrongData">
+        <input type="password" v-model="password" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)">
         <span v-if="wrongData.includes('password')">
           <img src="../assets/images/wrong-data.svg" alt="wrong-data">Entered password is incorrect
         </span>
       </div>
       <div class="auth-form__btns">
-        <button class="login-btn" @click="isCorrectData(login, password)">
-          LOGIN
-        </button>
+        <primary-button @click.native="isCorrectData(login, password)">LOGIN</primary-button>
         <button class="forgot-btn">
           Forgot Password
         </button>
@@ -31,8 +29,11 @@
 </template>
 
 <script>
+import PrimaryButton from "@/components/PrimaryButton";
+
 export default {
   name: "AuthForm",
+  components: {PrimaryButton},
   data(){
     return {
       login: '',
@@ -43,6 +44,9 @@ export default {
   methods: {
     isCorrectData(login, password) {
       console.log('works', login, password)
+      if(this.login === '' || this.password === ''){
+        return;
+      }
       if(this.login !== 'Admin') {
         this.wrongData.push('login')
       }
@@ -50,10 +54,13 @@ export default {
         return this.wrongData.push('password')
       }
       if(!this.wrongData.length){
-        alert('Success')
+        const data = {
+          name: this.login,
+          isAuth: true
+        }
+        localStorage.user = JSON.stringify(data)
+        this.$router.push('todo')
       }
-      this.login = '';
-      this.password = '';
     },
     resetWrongData(){
       this.wrongData = []
@@ -99,16 +106,6 @@ export default {
     }
   }
   &__btns {
-    .login-btn {
-      width: 100%;
-      height: 53px;
-      background: $button-blue;
-      font-size: 25px;
-      line-height: 29px;
-      color: $white;
-      border: none;
-      cursor: pointer;
-    }
     .forgot-btn {
       width: 100%;
       font-size: 20px;

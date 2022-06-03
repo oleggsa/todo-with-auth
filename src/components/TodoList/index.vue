@@ -14,7 +14,7 @@
       </div>
     </transition-group>
   </div>
-  <h2 v-else>There is no TODO!</h2>
+  <h2 v-else>Create your first TODO!</h2>
 </template>
 
 <script>

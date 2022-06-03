@@ -2,6 +2,7 @@
   <div class="todo">
     <div class="todo-wrapper">
       <div class="container">
+        <button class="logout" @click="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>LOG OUT</button>
         <div class="todo-inner">
           <div class="todo-inner__logo">
             <img src="../../assets/images/logo-todo.svg" alt="logo">
@@ -103,6 +104,10 @@ export default {
       this.isDialogVisible = false;
       this.isInfoDialogVisible = false;
       this.isEditing = false;
+    },
+    logout(){
+      localStorage.removeItem('user')
+      this.$router.replace({path: '/login'})
     }
   },
   beforeDestroy() {

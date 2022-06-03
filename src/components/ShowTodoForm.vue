@@ -50,8 +50,10 @@ export default {
     background: white;
     border-radius: 10px;
     min-width: 300px;
-    max-width: 500px;
-    min-height: 100px;
+    max-width: 700px;
+    min-height: 200px;
+    max-height: 90%;
+    overflow: scroll;
 
     @include _375 {
       padding: 12px;
@@ -63,6 +65,9 @@ export default {
       overflow-wrap: anywhere;
       display: flex;
       justify-content: space-between;
+      i {
+        cursor: pointer;
+      }
     }
     .description {
       font-size: 18px;

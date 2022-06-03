@@ -4,19 +4,38 @@ import LoginPage from "@/views/LoginPage";
 
 Vue.use(VueRouter)
 
+function isAuthenticated(){
+  return JSON.parse(localStorage.getItem('user')).isAuth
+}
+
 const routes = [
   {
     path: '/',
+    beforeEnter: function(to, from, next){
+      next('/login')
+    }
+  },
+  {
+    path: '/login',
     name: 'login',
     component: LoginPage
   },
   {
     path: '/todo',
     name: 'todo',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/TodoPage.vue')
+    beforeEnter(to, from, next) {
+      if (isAuthenticated()) {
+        next();
+      } else {
+        next('/login');
+      }
+    },
+    component: () => import('../views/TodoPage.vue')
+  },
+  {
+    path: "/page-not-found",
+    alias: '*',
+    component: { render: (h) => h("div", ["404! Page Not Found!"]) },
   }
 ]
 

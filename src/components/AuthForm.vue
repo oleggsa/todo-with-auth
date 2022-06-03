@@ -59,7 +59,7 @@ export default {
           isAuth: true
         }
         localStorage.user = JSON.stringify(data)
-        this.$router.push('todo')
+        this.$router.replace({path: '/todo'})
       }
     },
     resetWrongData(){

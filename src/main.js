@@ -7,8 +7,9 @@ import '@/assets/styles/mixin.scss';
 import '@/assets/styles/variables.scss';
 import router from './router'
 
-Vue.config.productionTip = false
+export const eventBus = new Vue()
 
+Vue.config.productionTip = false
 
 new Vue({
   router,

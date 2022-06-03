@@ -10,12 +10,12 @@
               type="text"
               placeholder="Title"
           >
-          <input
+          <textarea
               @input="newTodo.description = $event.target.value"
               v-bind:value="isEditing ? newTodo.description = todoToEdit.description : newTodo.description = ''"
               type="text"
               placeholder="Description"
-          >
+          ></textarea>
           <primary-button @click.native="isEditing ? createTodo('update') : createTodo('new')">{{!isEditing ? 'Submit' : 'Edit'}}</primary-button>
         </form>
       </div>
@@ -92,19 +92,23 @@ export default {
   right: 0;
   bottom: 0;
   display: flex;
+  @include _592 {
+    padding: 20px;
+  }
+  @include _450 {
+    padding: 10px;
+  }
   &-inner {
     padding: 18px;
     margin: auto;
     background: white;
     border-radius: 10px;
     min-width: 300px;
+    max-width: 500px;
     min-height: 100px;
-    @include _768 {
-      margin: auto 20px;
-    }
+
     @include _375 {
       padding: 12px;
-      margin: auto 10px;
     }
   }
 }
@@ -114,11 +118,18 @@ export default {
     text-align: center;
     font-size: 26px;
   }
-  input {
+  input,
+  textarea {
     width: 100%;
     margin-bottom: 15px;
     font-size: 18px;
     padding: 8px;
+    min-width: 200px;
+  }
+  textarea {
+    resize: vertical;
+    max-height: 200px;
+    min-height: 100px;
   }
 }
 </style>

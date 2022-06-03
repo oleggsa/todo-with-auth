@@ -21,7 +21,12 @@
                   @update-todo="updateTodo"
               />
             </div>
-            <todo-list :todoList="todoList" @edit-todo="editTodo" @remove-todo="removeTodo"/>
+            <todo-list
+                :todoList="todoList"
+                @edit-todo="editTodo"
+                @remove-todo="removeTodo"
+                :isInfoDialogVisible="isInfoDialogVisible"
+            />
           </div>
         </div>
       </div>
@@ -33,6 +38,7 @@
 import PrimaryButton from "@/components/PrimaryButton";
 import TodoList from "@/components/TodoList";
 import TodoForm from "@/components/TodoForm";
+import {eventBus} from '@/main'
 
 export default {
   name: "TodoPage",
@@ -43,10 +49,15 @@ export default {
       currentUserName: '',
       todoList: [],
       isDialogVisible: false,
+      isInfoDialogVisible: false,
       isEditing: false,
       dataForChange: {},
       dataIndex: null
     }
+  },
+  created() {
+    eventBus.$on('show-info-dialog', this.showInfoDialog)
+    eventBus.$on('hide-dialog', this.hideDialog)
   },
   mounted() {
     this.currentUserName = JSON.parse(localStorage.getItem('user')).name;
@@ -77,13 +88,21 @@ export default {
       this.$store.commit('updateTodoList', this.todoList)
     },
     showDialog(){
-      this.isDialogVisible = true
+      this.isDialogVisible = true;
+    },
+    showInfoDialog(){
+      this.isInfoDialogVisible = true;
     },
     hideDialog() {
       this.isDialogVisible = false;
+      this.isInfoDialogVisible = false;
       this.isEditing = false;
     }
   },
+  beforeDestroy() {
+    eventBus.$off('hide-dialog')
+    eventBus.$off('show-info-dialog')
+  }
 }
 </script>
 

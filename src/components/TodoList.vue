@@ -1,8 +1,9 @@
 <template>
   <div class="todo-list" v-if="todoList.length > 0">
+    <show-todo-form :show="isInfoDialogVisible" :targetTodo="targetTodo"/>
     <transition-group name="transition" tag="div">
       <div class="todo-item" v-for="item in todoList" :key="item.title">
-        <div class="todo-body">
+        <div class="todo-body" @click="showInfoDialog(item)">
           <div class="header">{{ item.title }}</div>
           <div class="description">{{item.description}}</div>
         </div>
@@ -17,9 +18,24 @@
 </template>
 
 <script>
+import ShowTodoForm from "@/components/ShowTodoForm";
+import {eventBus} from '@/main.js'
+
 export default {
   name: "TodoList",
-  props: ['todoList']
+  components: {ShowTodoForm},
+  props: ['todoList', 'isInfoDialogVisible'],
+  data() {
+    return {
+      targetTodo: {}
+    }
+  },
+  methods: {
+    showInfoDialog(item){
+      this.targetTodo = item;
+      eventBus.$emit('show-info-dialog')
+    },
+  }
 }
 </script>
 
@@ -50,11 +66,11 @@ export default {
         font-weight: 500;
         display: flex;
         margin-bottom: 10px;
-        overflow-wrap: break-word;
+        overflow-wrap: anywhere;
       }
       .description {
         font-size: 13px;
-        overflow-wrap: break-word;
+        overflow-wrap: anywhere;
       }
     }
     .btns {

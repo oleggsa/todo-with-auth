@@ -1,10 +1,12 @@
 <template>
-  <input type="text" >
+  <input v-if="type === 'text'" type="text" @input="$emit('input', $event.target.value)">
+  <input v-else-if="type === 'password'" type="password" @input="$emit('input', $event.target.value)">
 </template>
 
 <script>
 export default {
-  name: "LoginInput"
+  name: "LoginInput",
+  props: ['type']
 }
 </script>
 

@@ -44,11 +44,6 @@ export default {
       },
     }
   },
-  watch: {
-    isEditing(newVal){
-      console.log(newVal, 'editing', this.todoToEdit)
-    }
-  },
   methods: {
     createTodo(condition) {
       if(condition === 'new'){

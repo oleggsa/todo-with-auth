@@ -3,14 +3,14 @@
     <div class="auth-form__inner">
       <div class="input-login">
         <p>Name</p>
-        <input type="text" v-model="login" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)" >
+        <LoginInput :type="'text'" v-model="login" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)" />
         <span v-if="wrongData.includes('login')">
           <img src="../../assets/images/wrong-data.svg" alt="wrong-data">Entered login is incorrect
         </span>
       </div>
       <div class="input-password">
         <p>Password</p>
-        <input type="password" v-model="password" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)" >
+        <LoginInput :type="'password'" v-model="password" @focus="resetWrongData" @keyup.enter="isCorrectData(login, password)" />
         <span v-if="wrongData.includes('password')">
           <img src="../../assets/images/wrong-data.svg" alt="wrong-data">Entered password is incorrect
         </span>
@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     isCorrectData(login, password) {
-      console.log('works', login, password)
       if(this.login === '' || this.password === ''){
         return;
       }

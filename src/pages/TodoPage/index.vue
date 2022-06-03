@@ -99,7 +99,6 @@ export default {
       document.body.style.overflow = "hidden";
     },
     hideDialog() {
-      console.log('WORKS')
       document.body.style.overflow = "auto";
       this.isDialogVisible = false;
       this.isInfoDialogVisible = false;
